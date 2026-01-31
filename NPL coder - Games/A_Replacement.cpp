@@ -16,7 +16,7 @@ int main() {
     cout.tie(0);
     //Input/Output go bRRRRRRRRR!!!!
     int t=1; 
-    // cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }
@@ -26,12 +26,34 @@ int main() {
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
 
 void solve() {
-    ll n , k;
-    cin >> n >> k;
-    ll total = n /k;
-    if(total&1){
-        cout << yes << endl;
+    int n;
+    cin >> n;
+    string s, r;
+    cin >> s >> r;
+
+    int c0 = 0, c1 = 0;
+    for (char c : s) {
+        if (c == '0') c0++;
+        else c1++;
     }
-    else
-    cout << no << endl;
+
+    bool possible = true;
+    for (int i = 0; i < n - 1; ++i) {
+        if (c0 == 0 || c1 == 0) {
+            possible = false;
+            break;
+        }
+
+        if (r[i] == '0') {
+            c1--;
+        } else {
+            c0--;
+        }
+    }
+
+    if (possible) {
+        cout << yes << endl;
+    } else {
+        cout << no << endl;
+    }
 }

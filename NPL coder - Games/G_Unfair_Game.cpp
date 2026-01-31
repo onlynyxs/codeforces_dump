@@ -16,7 +16,7 @@ int main() {
     cout.tie(0);
     //Input/Output go bRRRRRRRRR!!!!
     int t=1; 
-    // cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }
@@ -26,12 +26,14 @@ int main() {
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
 
 void solve() {
-    ll n , k;
-    cin >> n >> k;
-    ll total = n /k;
-    if(total&1){
-        cout << yes << endl;
+    int p1, p2, p3, p4;
+    cin >> p1 >> p2 >> p3 >> p4;
+
+    int ans = (p1 / 2) + (p2 / 2) + (p3 / 2) + (p4 / 2);
+
+    if (p1 % 2 == 1 && p2 % 2 == 1 && p3 % 2 == 1) {
+        ans++;
     }
-    else
-    cout << no << endl;
+
+    cout << ans << endl;
 }

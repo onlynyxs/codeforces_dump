@@ -16,7 +16,7 @@ int main() {
     cout.tie(0);
     //Input/Output go bRRRRRRRRR!!!!
     int t=1; 
-    // cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }
@@ -26,12 +26,22 @@ int main() {
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
 
 void solve() {
-    ll n , k;
+    int n, k;
     cin >> n >> k;
-    ll total = n /k;
-    if(total&1){
-        cout << yes << endl;
+    map<int, int> counts;
+    int max_freq = 0;
+    
+    for (int i = 0; i < n; ++i) {
+        int card;
+        cin >> card;
+        counts[card]++;
+        max_freq = max(max_freq, counts[card]);
     }
-    else
-    cout << no << endl;
+    
+    if (max_freq >= k) {
+        cout << k - 1 << endl;
+    } else {
+        cout << n << endl;
+    }
+
 }

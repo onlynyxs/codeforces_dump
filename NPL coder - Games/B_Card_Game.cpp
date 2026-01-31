@@ -16,7 +16,7 @@ int main() {
     cout.tie(0);
     //Input/Output go bRRRRRRRRR!!!!
     int t=1; 
-    // cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }
@@ -26,12 +26,24 @@ int main() {
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
 
 void solve() {
-    ll n , k;
-    cin >> n >> k;
-    ll total = n /k;
-    if(total&1){
-        cout << yes << endl;
+    int n, k1, k2;
+    cin >> n >> k1 >> k2;
+    
+    bool maxp1 = false;
+    for (int i = 0; i < k1; ++i) {
+        int card;
+        cin >> card;
+        if (card == n) maxp1 = true;
     }
-    else
-    cout << no << endl;
+    
+    for (int i = 0; i < k2; ++i) {
+        int card;
+        cin >> card;
+    }
+    
+    if (maxp1) {
+        cout << yes << endl;
+    } else {
+        cout << no << endl;
+    }
 }

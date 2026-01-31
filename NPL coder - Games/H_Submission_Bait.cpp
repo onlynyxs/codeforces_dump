@@ -16,7 +16,7 @@ int main() {
     cout.tie(0);
     //Input/Output go bRRRRRRRRR!!!!
     int t=1; 
-    // cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }
@@ -26,12 +26,26 @@ int main() {
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
 
 void solve() {
-    ll n , k;
-    cin >> n >> k;
-    ll total = n /k;
-    if(total&1){
-        cout << yes << endl;
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    vector<int> count(n + 1, 0); 
+    
+    for(int i = 0; i < n; i++) {
+        cin >> a[i];
+        count[a[i]]++;
     }
-    else
+
+    bool alice_wins = false;
+    for(int i = 1; i <= n; i++) {
+        if(count[i] % 2 != 0) {
+            alice_wins = true;
+            break;
+        }
+    }
+
+    if(alice_wins) 
+    cout << yes << endl;
+    else 
     cout << no << endl;
 }
