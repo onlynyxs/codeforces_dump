@@ -32,7 +32,29 @@ int main() {
     return 0;
 }
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
-
 void solve() {
+    int n, k;
+    cin >> n >> k;
+    vector<pair<int, int>> p(n);
+    for (int i = 0; i < n; i++) {
+        cin >> p[i].first >> p[i].second;
+    }
 
+    bool possible = false;
+    for (int i = 0; i < n; i++) {
+        int cnt = 0;
+        for (int j = 0; j < n; j++) {
+            ll dist = abs(p[i].first - p[j].first) + abs(p[i].second - p[j].second);
+            if (dist <= k) {
+                cnt++;
+            }
+        }
+        if (cnt == n) {
+            possible = true;
+            break;
+        }
+    }
+
+    if (possible) cout << 1;
+    else cout << -1;
 }

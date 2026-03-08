@@ -1,3 +1,4 @@
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
  |   Competitive Programming Template                   |
  |   Author: Nyxs                                       |
@@ -34,5 +35,25 @@ int main() {
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
 
 void solve() {
+    int n;
+    cin >> n;
+    vector<int> counts;
 
+    for (int i = 0; i < n; i++) {
+        string row;
+        cin >> row;
+        int ones = 0;
+        for (char c : row) {
+            if (c == '1') ones++;
+        }
+        if (ones > 0) {
+            counts.push_back(ones);
+        }
+    }
+
+    if (counts.size() >= 2 && counts[0] == counts[1]) {
+        cout << "SQUARE";
+    } else {
+        cout << "TRIANGLE";
+    }
 }

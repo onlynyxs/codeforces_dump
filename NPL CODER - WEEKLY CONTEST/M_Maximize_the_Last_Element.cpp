@@ -34,5 +34,20 @@ int main() {
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
 
 void solve() {
-
+    int n;
+    cin >> n;
+    
+    int max_val = -1;
+    for (int i = 0; i < n; i++) {
+        int val;
+        cin >> val;
+        
+        if (i % 2 == 0) {
+            if (val > max_val) {
+                max_val = val;
+            }
+        }
+    }
+    
+    cout << max_val;
 }

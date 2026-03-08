@@ -34,5 +34,13 @@ int main() {
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
 
 void solve() {
+    string s;
+    cin >> s;
+    if (s.find('r') < s.find('R') &&
+            s.find('g') < s.find('G') &&
+            s.find('b') < s.find('B'))
+            cout << yes;
+        else
+            cout << no;
 
 }

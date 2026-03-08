@@ -34,5 +34,27 @@ int main() {
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
 
 void solve() {
-
+    int n;
+    cin >> n;   
+    vector<int> freq(26, 0);
+    
+    for (int i = 0; i < 2 * n; ++i) {
+        string t;
+        cin >> t;
+        for (char c : t) {
+            freq[c - 'a']++;
+        }
+    }
+    
+    string s;
+    cin >> s;
+    for (char c : s) {
+        freq[c - 'a']++;
+    }
+    for (int i = 0; i < 26; ++i) {
+        if (freq[i] % 2 != 0) {
+            cout << (char)('a' + i) ;
+            return;
+        }
+    }
 }

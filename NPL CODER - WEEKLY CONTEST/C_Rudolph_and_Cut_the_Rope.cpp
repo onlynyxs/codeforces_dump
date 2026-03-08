@@ -34,5 +34,14 @@ int main() {
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
 
 void solve() {
+    int n;
+    cin >> n;
+    int count=0;
+    inp(n) {
+            int a, b;
+            cin >> a >> b;
 
+            if (a - b > 0) count++;
+        }
+    cout << count;
 }

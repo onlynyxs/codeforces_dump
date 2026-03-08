@@ -23,7 +23,7 @@ int main() {
     
     
     int t=1; 
-    cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
         cout << "\n";
@@ -34,5 +34,27 @@ int main() {
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
 
 void solve() {
+    int n;
+    cin >> n;
 
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    int lenL = 1;
+    while (lenL < n && a[lenL] > a[lenL - 1]) {
+        lenL++;
+    }
+
+    int lenR = 1;
+    while (lenR < n && a[n - 1 - lenR] > a[n - lenR]) {
+        lenR++;
+    }
+
+    if (lenL % 2 != 0 || lenR % 2 != 0) {
+        cout << "Alice" ;
+    } else {
+        cout << "Bob";
+    }
 }

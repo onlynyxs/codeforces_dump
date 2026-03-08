@@ -34,5 +34,31 @@ int main() {
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
 
 void solve() {
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
 
+    vector<int> a, b;
+    for (int i = 0; i < n; i++) {
+        if (s[i] == 'A') a.push_back(i + 1);
+        else b.push_back(i + 1);
+    }
+
+    bool win = false;
+    for (int x : a) {
+        bool beatable = false;
+        for (int y : b) {
+            if ((y > x && !(x == 1 && y == n)) || (y == 1 && x == n)) {
+                beatable = true;
+                break;
+            }
+        }
+        if (!beatable) {
+            win = true;
+            break;
+        }
+    }
+
+    cout << (win ? "Alice" : "Bob");
 }

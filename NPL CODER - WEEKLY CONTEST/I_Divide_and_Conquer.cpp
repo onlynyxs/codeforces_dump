@@ -34,5 +34,31 @@ int main() {
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
 
 void solve() {
+    int n;
+    cin >> n;
+    vector<ll> a(n);
+    ll sum = 0;
+    for(int i = 0; i < n; i++) {
+        cin >> a[i];
+        sum += a[i];
+    }
 
+    if (sum % 2 == 0) {
+        cout << 0;
+        return;
+    }
+
+    int min_ops = 1e9; 
+    for (ll x : a) {
+        int ops = 0;
+        ll temp = x;
+        bool initial_parity = (temp % 2 != 0);
+        while ((temp % 2 != 0) == initial_parity) {
+            temp /= 2;
+            ops++;
+        }
+        min_ops = min(min_ops, ops);
+    }
+    
+    cout << min_ops;
 }

@@ -32,7 +32,34 @@ int main() {
     return 0;
 }
 /*---------------------☆*: .｡. o(≧▽≦)o .｡.:*☆----------------------*/
-
 void solve() {
+    int n, m, x;
+    cin >> n >> m >> x;
 
+    set<int> pos;
+    pos.insert(x);
+
+    for (int i = 0; i < m; i++) {
+        int r;
+        char c;
+        cin >> r >> c;
+
+        set<int> next_pos;
+        for (int p : pos) {
+            if (c == '0' || c == '?') {
+                int nxt = (p + r - 1) % n + 1;
+                next_pos.insert(nxt);
+            }
+            if (c == '1' || c == '?') {
+                int nxt = (p - r - 1 % n + n) % n + 1;
+                next_pos.insert(nxt);
+            }
+        }
+        pos = next_pos; 
+    }
+
+    cout << pos.size() << "\n";
+    for (auto it = pos.begin(); it != pos.end(); ++it) {
+        cout << *it << (next(it) == pos.end() ? "" : " ");
+    }
 }
